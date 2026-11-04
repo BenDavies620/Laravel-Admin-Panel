@@ -6,7 +6,7 @@
 
         <h1>Create Company</h1>
 
-        <form method="POST" action="{{ route('companies.store') }}">
+        <form method="POST" action="{{ route('companies.store') }}" enctype="multipart/form-data">
             @csrf
             <label for="name">Company Name</label>
             <input type="text" name="name" id="name" class="form-control" value="{{ old('name') }}">
@@ -35,7 +35,11 @@
                 </div>
             @enderror
 
+            <label for="logo">Company Logo</label>
+            <input type="file" name="logo" id="logo" class="form-control" accept="image/*">
+
             <button type="submit" class="btn btn-primary">Create Company</button>
+            <a href="{{ route('companies.index') }}" class="btn btn-secondary">Cancel</a>
         </form>
     </div>
 
