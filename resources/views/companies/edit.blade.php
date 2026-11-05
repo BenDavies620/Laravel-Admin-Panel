@@ -42,6 +42,8 @@
 
             @if($company->logo)
                 <img src="{{ asset('storage/' . $company->logo) }}" alt="{{ $company->name }} logo">
+                <input type="checkbox" name="remove_logo" id="remove_logo" value="1" @checked(old('remove_logo'))>
+                <label for="remove_logo">Remove current logo</label>
             @endif
 
             <button type="submit" class="btn btn-primary">Update Company</button>

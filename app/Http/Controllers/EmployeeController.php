@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use App\Http\Requests\EmployeeRequest;
 use App\Models\Employee;
 use App\Models\Company;
 
@@ -35,15 +35,9 @@ class EmployeeController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(EmployeeRequest $request)
     {
-        $validated = $request->validate([
-            'first_name' => 'required|string|max:255',
-            'last_name' => 'required|string|max:255',
-            'company_id' => 'nullable|exists:companies,id',
-            'email' => 'nullable|email|max:255',
-            'phone_number' => 'nullable|string|max:20'            
-        ]);
+        $validated = $request->validated();
 
         Employee::create($validated);
 
@@ -75,15 +69,9 @@ class EmployeeController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Employee $employee)
+    public function update(EmployeeRequest $request, Employee $employee)
     {
-        $validated = $request->validate([
-            'first_name' => 'required|string|max:255',
-            'last_name' => 'required|string|max:255',
-            'company_id' => 'nullable|exists:companies,id',
-            'email' => 'nullable|email|max:255',
-            'phone_number' => 'nullable|string|max:20'            
-        ]);
+        $validated = $request->validated();
 
         $employee->update($validated);
 

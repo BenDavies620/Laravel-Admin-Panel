@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use App\Http\Requests\CompanyRequest;
 use App\Models\Company;
 use Illuminate\Support\Facades\Storage;
 
@@ -31,14 +31,9 @@ class CompanyController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(CompanyRequest $request)
     {
-        $validated = $request->validate([
-            'name' => 'required|string|max:255',
-            'email' => 'nullable|email|max:255',
-            'website' => 'nullable|url|max:255',
-            'logo' => 'nullable|image|dimensions:min_width=100,min_height=100'
-        ]);
+        $validated = $request->validated();
 
         if ($request->hasFile('logo')){
             $validated['logo'] = $request->file('logo')->store('companies', 'public');
@@ -71,20 +66,22 @@ class CompanyController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Company $company)
+    public function update(CompanyRequest $request, Company $company)
     {
-        $validated = $request->validate([
-            'name' => 'required|string|max:255',
-            'email' => 'nullable|email|max:255',
-            'website' => 'nullable|url|max:255',
-            'logo' => 'nullable|image|dimensions:min_width=100,min_height=100'
-        ]);
+        $validated = $request->validated();
+
+        $removeLogo = $validated['remove_logo'] ?? false;
+
+        unset($validated['remove_logo']);
 
         $oldLogo = null;
 
         if ($request->hasFile('logo')) {
             $oldLogo = $company->logo;
             $validated['logo'] = $request->file('logo')->store('companies', 'public');
+        }elseif ($removeLogo && $company->logo) {
+            $oldLogo = $company->logo;
+            $validated['logo'] = null;
         }
 
         $company->update($validated);
