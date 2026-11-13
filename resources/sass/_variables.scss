@@ -1,7 +1,23 @@
-// Body
-$body-bg: #f8fafc;
+// Colours
+$primary: #0D7FA0;
+$secondary: #64748b;
+
+$body-bg: #f5f7fb;
+$body-color: #1f2937;
+
+$border-color: #e5e7eb;
+
+// Admin layout colours
+$admin-sidebar-bg: #172033;
+$admin-sidebar-text: #cbd5e1;
+$admin-sidebar-muted: #94a3b8;
+$admin-sidebar-border: rgba(255, 255, 255, 0.08);
 
 // Typography
-$font-family-sans-serif: 'Nunito', sans-serif;
-$font-size-base: 0.9rem;
-$line-height-base: 1.6;
+$font-family-sans-serif: 'Roboto Condensed', sans-serif;
+$font-size-base: 0.95rem;
+$line-height-base: 1.5;
+
+// Borders
+$border-radius: 0.6rem;
+$border-radius-lg: 0.85rem;

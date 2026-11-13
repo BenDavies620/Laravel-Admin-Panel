@@ -1,0 +1,410 @@
+.admin-layout {
+    display: flex;
+    min-height: 100vh;
+    background-color: $body-bg;
+}
+
+// Sidebar
+.admin-sidebar {
+    --bs-offcanvas-width: 264px;
+
+    color: #ffffff;
+    background-color: $admin-sidebar-bg;
+    border: 0;
+}
+
+.admin-sidebar__body {
+    display: flex;
+    flex-direction: column;
+    padding: 1.5rem 1rem;
+    overflow-y: auto;
+}
+
+.admin-sidebar__mobile-header {
+    padding: 1.25rem 1.25rem 0.5rem;
+}
+
+// Branding
+.admin-brand {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    color: #ffffff;
+    text-decoration: none;
+
+    &:hover {
+        color: #ffffff;
+    }
+}
+
+.admin-brand__mark {
+    display: grid;
+    place-items: center;
+    width: 40px;
+    height: 40px;
+    flex-shrink: 0;
+    border-radius: 0.75rem;
+    background-color: $primary;
+    color: #ffffff;
+    font-size: 1.2rem;
+    font-weight: 700;
+}
+
+.admin-brand__text {
+    strong {
+        display: block;
+        font-size: 1.05rem;
+        font-weight: 700;
+        line-height: 1.2;
+    }
+
+    small {
+        display: block;
+        margin-top: 0.2rem;
+        color: $admin-sidebar-muted;
+        font-size: 0.72rem;
+        font-weight: 400;
+    }
+}
+
+.admin-sidebar__brand {
+    margin: 0.25rem 0.5rem 2.75rem;
+}
+
+// Sidebar navigation
+.admin-sidebar__section-label {
+    margin: 0 0.85rem 0.75rem;
+    color: $admin-sidebar-muted;
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+}
+
+.admin-sidebar__nav {
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+}
+
+.admin-nav-link {
+    display: flex;
+    align-items: center;
+    gap: 0.85rem;
+    padding: 0.8rem 0.85rem;
+    border-radius: 0.65rem;
+    color: $admin-sidebar-text;
+    font-size: 0.95rem;
+    font-weight: 500;
+    text-decoration: none;
+    transition: background-color 0.2s ease, color 0.2s ease;
+
+    &:hover,
+    &:focus-visible {
+        background-color: rgba($primary, 0.07);
+        color: #ffffff;
+    }
+
+    &:focus-visible {
+        outline: 2px solid #70c9e2;
+        outline-offset: 2px;
+    }
+
+    &.is-active {
+        background-color: rgba($primary, 0.25);
+        color: #ffffff;
+    }
+}
+
+.admin-nav-link__icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 22px;
+    height: 22px;
+    flex-shrink: 0;
+
+    svg {
+        width: 20px;
+        height: 20px;
+    }
+}
+
+// Sidebar footer
+.admin-sidebar__footer {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-top: auto;
+    padding: 1.25rem 0.85rem 0.25rem;
+    border-top: 1px solid $admin-sidebar-border;
+
+    strong,
+    small {
+        display: block;
+    }
+
+    strong {
+        color: #ffffff;
+        font-size: 0.85rem;
+        font-weight: 600;
+    }
+
+    small {
+        margin-top: 0.15rem;
+        color: $admin-sidebar-muted;
+        font-size: 0.75rem;
+    }
+}
+
+.admin-sidebar__status-dot {
+    width: 9px;
+    height: 9px;
+    flex-shrink: 0;
+    border-radius: 50%;
+    background-color: #22c55e;
+}
+
+// Main content area
+.admin-main {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    min-width: 0;
+    min-height: 100vh;
+}
+
+// Top navigation bar
+.admin-topbar {
+    position: sticky;
+    top: 0;
+    z-index: 1020;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    min-height: 76px;
+    padding: 0 2rem;
+    border-bottom: 1px solid $border-color;
+    background-color: #ffffff;
+}
+
+.admin-topbar__left {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.admin-topbar__heading {
+    display: flex;
+    flex-direction: column;
+    gap: 0.1rem;
+}
+
+.admin-topbar__eyebrow {
+    color: $secondary;
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+}
+
+.admin-topbar__title {
+    color: $body-color;
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+// Mobile menu button
+.admin-menu-toggle {
+    display: grid;
+    place-items: center;
+    width: 40px;
+    height: 40px;
+    border: 1px solid $border-color;
+    border-radius: 0.6rem;
+    background-color: #ffffff;
+    color: $body-color;
+
+    svg {
+        width: 20px;
+        height: 20px;
+    }
+
+    &:hover {
+        background-color: $body-bg;
+    }
+}
+
+// User dropdown
+.admin-user-menu {
+    display: flex;
+    align-items: center;
+    gap: 0.7rem;
+    padding: 0.4rem 0.5rem;
+    border: 0;
+    border-radius: 0.65rem;
+    background: transparent;
+    text-align: left;
+    transition: background-color 0.2s ease;
+
+    &:hover,
+    &.show {
+        background-color: $body-bg;
+    }
+}
+
+.admin-user-menu__avatar {
+    display: grid;
+    place-items: center;
+    width: 38px;
+    height: 38px;
+    flex-shrink: 0;
+    border-radius: 50%;
+    background-color: rgba(79, 70, 229, 0.1);
+    color: $primary;
+    font-size: 0.95rem;
+    font-weight: 700;
+}
+
+.admin-user-menu__details {
+    strong,
+    small {
+        display: block;
+    }
+
+    strong {
+        color: $body-color;
+        font-size: 0.85rem;
+        font-weight: 600;
+    }
+
+    small {
+        margin-top: 0.1rem;
+        color: $secondary;
+        font-size: 0.72rem;
+    }
+}
+
+.admin-user-menu__chevron {
+    width: 16px;
+    height: 16px;
+    margin-left: 0.25rem;
+    color: $secondary;
+}
+
+.admin-user-dropdown {
+    min-width: 220px;
+    margin-top: 0.65rem !important;
+    padding: 0.5rem;
+    border: 1px solid $border-color;
+    border-radius: 0.75rem;
+    box-shadow: 0 10px 30px rgba(15, 23, 42, 0.1);
+}
+
+.admin-user-dropdown__header {
+    padding: 0.6rem 0.75rem;
+
+    strong,
+    small {
+        display: block;
+    }
+
+    strong {
+        color: $body-color;
+        font-size: 0.9rem;
+    }
+
+    small {
+        margin-top: 0.2rem;
+        color: $secondary;
+        font-size: 0.75rem;
+    }
+}
+
+.admin-user-dropdown .dropdown-item {
+    padding: 0.6rem 0.75rem;
+    border-radius: 0.4rem;
+    font-size: 0.9rem;
+}
+
+// Page content
+.admin-content {
+    flex: 1;
+    width: 100%;
+    max-width: 1600px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+// Guest / login layout
+.auth-layout {
+    min-height: 100vh;
+    background-color: $body-bg;
+}
+
+.auth-topbar {
+    display: flex;
+    align-items: center;
+    min-height: 76px;
+    padding: 0 2rem;
+    border-bottom: 1px solid $border-color;
+    background-color: #ffffff;
+
+    .admin-brand__text strong {
+        color: $body-color;
+    }
+
+    .admin-brand__text small {
+        color: $secondary;
+    }
+}
+
+.auth-content {
+    padding: 2rem 1rem;
+}
+
+// Desktop sidebar behaviour
+@media (min-width: 992px) {
+    .admin-sidebar.offcanvas {
+        position: sticky;
+        top: 0;
+        bottom: auto;
+        left: auto;
+        z-index: 1;
+        display: flex !important;
+        flex: 0 0 264px;
+        width: 264px;
+        height: 100vh;
+        visibility: visible !important;
+        transform: none !important;
+    }
+}
+
+// Responsive adjustments
+@media (max-width: 991.98px) {
+    .admin-topbar {
+        min-height: 68px;
+        padding: 0 1.25rem;
+    }
+
+    .admin-content {
+        padding: 1.5rem 1.25rem;
+    }
+
+    .auth-topbar {
+        padding: 0 1.25rem;
+    }
+}
+
+@media (max-width: 575.98px) {
+    .admin-user-menu__details,
+    .admin-user-menu__chevron {
+        display: none;
+    }
+
+    .admin-topbar {
+        padding: 0 0.85rem;
+    }
+
+    .admin-content {
+        padding: 1.25rem 0.85rem;
+    }
+}

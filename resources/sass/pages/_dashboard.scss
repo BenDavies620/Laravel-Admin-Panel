@@ -1,0 +1,345 @@
+// ==========================================
+// Dashboard page
+// ==========================================
+.dashboard-page {
+
+    &__header {
+        margin-bottom: 2rem;
+    }
+
+    &__title {
+        margin: 0;
+        color: $primary;
+        font-size: 1.9rem;
+        font-weight: 700;
+    }
+
+    &__description {
+        margin: 0.4rem 0 0;
+        color: $secondary;
+        font-size: 0.95rem;
+    }
+
+    .stats-card {
+        text-decoration: none;
+    }
+}
+
+// Dashboard statistics layout
+.stats-grid--dashboard {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+
+    @media (max-width: 575.98px) {
+        grid-template-columns: 1fr;
+    }
+}
+
+// ==========================================
+// Dashboard quick actions
+// ==========================================
+.dashboard-actions {
+    margin-top: 2rem;
+
+    &__header {
+        margin-bottom: 1.25rem;
+    }
+
+    &__description {
+        margin: 0.3rem 0 0;
+        color: $secondary;
+        font-size: 0.85rem;
+    }
+
+    &__title {
+        margin: 0;
+        color: $body-color;
+        font-size: 1.2rem;
+        font-weight: 700;
+    }
+
+    &__grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 1.25rem;
+    }
+}
+
+.dashboard-action {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: .75rem;
+    border: 1px solid $border-color;
+    border-radius: $border-radius-lg;
+    background-color: rgba($primary, 0.95);
+    text-decoration: none;
+    transition: border-color 0.2s ease,
+                box-shadow 0.2s ease,
+                transform 0.2s ease;
+
+    &:hover {
+        box-shadow: 0 4px 14px rgba(15, 23, 42, 0.06);
+        transform: translateY(-2px);
+        background-color: darken($primary, 5%);
+    }
+
+    &:focus-visible {
+        outline: 2px solid #70c9e2;
+    }
+
+    &__icon {
+        display: grid;
+        place-items: center;
+        width: 46px;
+        height: 46px;
+        flex-shrink: 0;
+        border-radius: 0.75rem;
+        background-color: rgba(#ffffff, 0.12);
+        color: #ffffff;
+
+        svg {
+            width: 23px;
+            height: 23px;
+        }
+    }
+
+    &__content {
+        flex: 1;
+        min-width: 0;
+
+        h3 {
+            margin: 0;
+            color: #ffffff;
+            font-size: 0.95rem;
+            font-weight: 600;
+        }
+    }
+
+    &__arrow {
+        display: flex;
+        align-items: center;
+        color: #ffffff;
+        transition: color 0.2s ease;
+
+        svg {
+            width: 20px;
+            height: 20px;
+        }
+    }
+}
+
+@media (max-width: 575.98px) {
+    .dashboard-actions__grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+// ==========================================
+// Recently added records
+// ==========================================
+.dashboard-recent {
+    margin-top: 2rem;
+
+    &__header {
+        margin-bottom: 1.25rem;
+    }
+
+    &__title {
+        margin: 0;
+        color: $body-color;
+        font-size: 1.2rem;
+        font-weight: 700;
+    }
+
+    &__description {
+        margin: 0.3rem 0 0;
+        color: $secondary;
+        font-size: 0.85rem;
+    }
+
+    &__grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 1.25rem;
+    }
+
+    // Individual cards
+    &__card {
+        overflow: hidden;
+        padding: 1.5rem;
+        border: 1px solid $border-color;
+        border-radius: $border-radius-lg;
+        background-color: #ffffff;
+        box-shadow: 0 2px 8px rgba(15, 23, 42, 0.03);
+    }
+
+    &__card-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 1rem;
+        margin-bottom: 1rem;
+    }
+
+    &__card-title {
+        margin: 0;
+        color: $body-color;
+        font-size: 1rem;
+        font-weight: 700;
+    }
+
+    &__view-all {
+        color: $primary;
+        font-size: 0.8rem;
+        font-weight: 600;
+        text-decoration: none;
+        white-space: nowrap;
+
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+
+    // Record list
+    &__list {
+        display: flex;
+        flex-direction: column;
+    }
+
+    &__item {
+        display: flex;
+        align-items: center;
+        gap: 0.85rem;
+        min-width: 0;
+        padding: 0.85rem 0;
+        border-top: 1px solid $border-color;
+        color: inherit;
+        text-decoration: none;
+        transition: background-color 0.2s ease;
+
+        &:hover {
+            background-color: #f8fafc;
+
+            .dashboard-recent__arrow {
+                color: $primary;
+                transform: translateX(3px);
+            }
+        }
+
+        &:focus-visible {
+            outline: 2px solid $primary;
+            outline-offset: -2px;
+            border-radius: 0.35rem;
+        }
+    }
+
+    // Company logos
+    &__company-logo,
+    &__company-placeholder {
+        display: grid;
+        place-items: center;
+        width: 38px;
+        height: 38px;
+        flex-shrink: 0;
+        border: 1px solid $border-color;
+        border-radius: 0.6rem;
+        background-color: #ffffff;
+    }
+
+    &__company-logo {
+        padding: 0.2rem;
+        object-fit: contain;
+        background-color: rgba($primary, 0.1);
+    }
+
+    &__company-placeholder {
+        background-color: rgba($primary, 0.1);
+        color: $primary;
+        font-size: 0.95rem;
+        font-weight: 700;
+    }
+
+    // Employee avatars
+    &__employee-avatar {
+        display: grid;
+        place-items: center;
+        width: 38px;
+        height: 38px;
+        flex-shrink: 0;
+        border-radius: 50%;
+        background-color: rgba($primary, 0.12);
+        color: $primary;
+        font-size: 0.75rem;
+        font-weight: 700;
+    }
+
+    // Record information
+    &__details {
+        display: flex;
+        flex: 1;
+        flex-direction: column;
+        gap: 0.2rem;
+        min-width: 0;
+    }
+
+    &__name {
+        overflow: hidden;
+        color: $body-color;
+        font-size: 0.875rem;
+        font-weight: 600;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+
+    &__meta {
+        overflow: hidden;
+        color: $secondary;
+        font-size: 0.75rem;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+
+    &__date {
+        flex-shrink: 0;
+        color: $secondary;
+        font-size: 0.7rem;
+        white-space: nowrap;
+    }
+
+    &__arrow {
+        flex-shrink: 0;
+        color: $secondary;
+        font-size: 1.25rem;
+        transition: color 0.2s ease,
+    }
+
+    // Empty state
+    &__empty {
+        padding: 1.5rem 0;
+        margin: 0;
+        border-top: 1px solid $border-color;
+        color: $secondary;
+        font-size: 0.85rem;
+        text-align: center;
+    }
+}
+
+// ==========================================
+// Responsive adjustments
+// ==========================================
+@media (max-width: 767.98px) {
+    .dashboard-recent__grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 479.98px) {
+    .dashboard-recent__card {
+        padding: 1.1rem;
+    }
+
+    .dashboard-recent__date {
+        font-size: 0.65rem;
+    }
+}

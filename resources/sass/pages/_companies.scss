@@ -1,0 +1,196 @@
+// ==========================================
+// Companies page
+// ==========================================
+
+.companies-page {
+
+    &__header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 1.5rem;
+        margin-bottom: 2rem;
+    }
+
+    &__title {
+        margin: 0;
+        color: $primary;
+        font-size: 1.9rem;
+        font-weight: 700;
+    }
+
+    &__description {
+        margin: 0.4rem 0 0;
+        color: $secondary;
+        font-size: 0.95rem;
+    }
+
+    &__add-button {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 0.7rem 1.1rem;
+        font-weight: 600;
+    }
+}
+
+// ==========================================
+// Company directory
+// ==========================================
+
+.companies-directory {
+
+    &__header {
+        margin-bottom: 1.25rem;
+    }
+
+    &__title {
+        margin: 0;
+        color: $body-color;
+        font-size: 1.2rem;
+        font-weight: 700;
+    }
+
+    &__description {
+        margin: 0.3rem 0 0;
+        color: $secondary;
+        font-size: 0.85rem;
+    }
+
+    &__table-wrapper {
+        overflow: hidden;
+        border: 1px solid $border-color;
+        border-radius: $border-radius-lg;
+        background-color: #ffffff;
+        box-shadow: 0 2px 8px rgba(15, 23, 42, 0.03);
+    }
+
+    &__table {
+        margin-bottom: 0;
+
+        th {
+            padding: 1rem 1.25rem;
+            border-bottom: 1px solid $border-color;
+            background-color: #f8fafc;
+            color: $secondary;
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+            white-space: nowrap;
+        }
+
+        td {
+            padding: 1rem 1.25rem;
+            border-bottom: 1px solid $border-color;
+            color: $body-color;
+            vertical-align: middle;
+            font-size: 0.875rem;
+        }
+
+        tbody tr:last-child td {
+            border-bottom: 0;
+        }
+    }
+
+    &__company {
+        display: flex;
+        align-items: center;
+        gap: 0.85rem;
+        min-width: 190px;
+    }
+
+    &__logo,
+    &__logo-placeholder {
+        display: grid;
+        place-items: center;
+        width: 42px;
+        height: 42px;
+        flex-shrink: 0;
+        border: 1px solid $border-color;
+        border-radius: 0.65rem;
+        background-color: #ffffff;
+    }
+
+    &__logo {
+        object-fit: contain;
+        padding: 0.25rem;
+        background-color: rgba($primary, 0.1);
+    }
+
+    &__logo-placeholder {
+        background-color: rgba($primary, 0.1);
+        color: $primary;
+        font-size: 1rem;
+        font-weight: 700;
+    }
+
+    &__company-details {
+        display: flex;
+        flex-direction: column;
+        gap: 0.2rem;
+    }
+
+    &__company-name {
+        color: $body-color;
+        font-weight: 600;
+    }
+
+    &__company-id {
+        color: $secondary;
+        font-size: 0.75rem;
+    }
+
+    &__link {
+        color: $body-color;
+        text-decoration: none;
+        transition: color 0.2s ease;
+
+        &:hover {
+            color: $primary;
+            text-decoration: underline;
+        }
+    }
+
+    &__empty {
+        color: $secondary;
+        font-size: 0.8rem;
+    }
+
+    &__actions {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+
+        form {
+            margin: 0;
+        }
+
+        .btn {
+            font-weight: 600;
+            white-space: nowrap;
+        }
+    }
+
+    &__pagination {
+        display: flex;
+        justify-content: flex-end;
+        padding: 1rem 1.25rem;
+        border-top: 1px solid $border-color;
+
+        .d-sm-flex {
+            gap: 1.5rem;
+        }
+
+        .pagination {
+            margin-bottom: 0;
+        }
+    }
+
+    &__empty-state {
+        padding: 3rem 1rem !important;
+        color: $secondary !important;
+        text-align: center;
+    }
+}

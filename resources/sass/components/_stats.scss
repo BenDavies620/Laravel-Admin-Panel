@@ -1,0 +1,79 @@
+// ==========================================
+// Shared statistics cards
+// ==========================================
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1.25rem;
+    margin-bottom: 2rem;
+}
+
+.stats-card {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    padding: 1.5rem;
+    border: 1px solid $border-color;
+    border-radius: $border-radius-lg;
+    background-color: #ffffff;
+    box-shadow: 0 2px 8px rgba(15, 23, 42, 0.03);
+    transition: box-shadow 0.2s ease;
+
+    &:hover {
+        box-shadow: 0 4px 14px rgba(15, 23, 42, 0.07);
+    }
+
+    &__content {
+        min-width: 0;
+    }
+
+    &__label {
+        margin: 0 0 0.85rem;
+        color: $secondary;
+        font-size: 0.9rem;
+        font-weight: 600;
+    }
+
+    &__count {
+        margin: 0;
+        color: $body-color;
+        font-size: 2rem;
+        font-weight: 700;
+        line-height: 1.2;
+    }
+
+    &__description {
+        margin: 0.5rem 0 0;
+        color: $secondary;
+        font-size: 0.8rem;
+    }
+
+    &__icon {
+        display: grid;
+        place-items: center;
+        width: 46px;
+        height: 46px;
+        flex-shrink: 0;
+        border-radius: 0.75rem;
+        background-color: rgba($primary, 0.12);
+        color: $primary;
+
+        svg {
+            width: 23px;
+            height: 23px;
+        }
+    }
+}
+
+// ==========================================
+// Responsive adjustments
+// ==========================================
+@media (max-width: 575.98px) {
+
+    .stats-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+
+}

@@ -1,0 +1,167 @@
+// ==========================================
+// Employee form page
+// ==========================================
+.employee-form-page {
+    max-width: 1000px;
+    margin: 0 auto;
+
+    &__header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 1rem;
+        margin-bottom: 1.75rem;
+    }
+
+    &__title {
+        margin: 0;
+        color: $primary;
+        font-size: 1.9rem;
+        font-weight: 700;
+    }
+
+    &__description {
+        margin: 0.4rem 0 0;
+        color: $secondary;
+        font-size: 0.95rem;
+    }
+}
+
+// ==========================================
+// Employee form
+// ==========================================
+.employee-form {
+
+    &__card {
+        overflow: hidden;
+        border: 1px solid $border-color;
+        border-radius: $border-radius-lg;
+        background-color: #ffffff;
+        box-shadow: 0 2px 10px rgba(15, 23, 42, 0.04);
+
+        form {
+            margin: 0;
+        }
+    }
+
+    &__section {
+        padding: 1.75rem;
+        border-bottom: 1px solid $border-color;
+    }
+
+    &__section-title {
+        margin: 0 0 1.5rem;
+        color: $body-color;
+        font-size: 1.05rem;
+        font-weight: 700;
+    }
+
+    // Input grid
+    &__grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 1.25rem 1.5rem;
+    }
+
+    &__field {
+        min-width: 0;
+
+        &--full {
+            grid-column: 1 / -1;
+        }
+
+        .form-label {
+            margin-bottom: 0.45rem;
+            color: $body-color;
+            font-size: 0.875rem;
+            font-weight: 600;
+        }
+
+        .form-control,
+        .form-select {
+            min-height: 44px;
+            border-color: $border-color;
+            border-radius: 0.5rem;
+            font-size: 0.9rem;
+
+            &:focus {
+                border-color: $primary;
+                box-shadow: 0 0 0 0.2rem rgba($primary, 0.12);
+            }
+        }
+
+        .text-danger {
+            display: block;
+            margin-top: 0.35rem;
+            font-size: 0.8rem;
+        }
+
+        .form-text {
+            color: $secondary;
+            font-size: 0.78rem;
+        }
+    }
+
+    // Form actions
+    &__actions {
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        gap: 0.75rem;
+        padding: 1.25rem 1.75rem;
+        background-color: #fcfdff;
+
+        .btn {
+            min-height: 40px;
+            padding: 0.55rem 1.1rem;
+            font-weight: 600;
+        }
+    }
+}
+
+// ==========================================
+// Responsive adjustments
+// ==========================================
+@media (max-width: 767.98px) {
+
+    .employee-form-page {
+        &__header {
+            align-items: flex-start;
+        }
+    }
+
+    .employee-form {
+
+        &__section {
+            padding: 1.25rem;
+        }
+
+        &__grid {
+            grid-template-columns: 1fr;
+            gap: 1rem;
+        }
+
+        &__field--full {
+            grid-column: auto;
+        }
+
+        &__actions {
+            padding: 1rem 1.25rem;
+        }
+    }
+}
+
+@media (max-width: 479.98px) {
+
+    .employee-form {
+
+        &__actions {
+            flex-direction: column-reverse;
+
+            .btn {
+                width: 100%;
+            }
+        }
+    }
+}

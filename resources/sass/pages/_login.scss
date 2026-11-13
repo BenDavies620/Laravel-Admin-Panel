@@ -1,0 +1,164 @@
+// ==========================================
+// Login page
+// ==========================================
+.auth-content {
+    display: grid;
+    place-items: center;
+    min-height: calc(100vh - 76px);
+    padding: 3rem 1.25rem;
+}
+
+.login-page {
+    width: 100%;
+    max-width: 440px;
+
+    &__card {
+        padding: 2.5rem;
+        border: 1px solid $border-color;
+        border-radius: $border-radius-lg;
+        background-color: #ffffff;
+        box-shadow: 0 8px 30px rgba(15, 23, 42, 0.06);
+    }
+
+    // Heading
+    &__header {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-bottom: 2rem;
+        text-align: center;
+    }
+
+    &__icon {
+        display: grid;
+        place-items: center;
+        width: 52px;
+        height: 52px;
+        margin-bottom: 1.25rem;
+        border-radius: 0.85rem;
+        background-color: rgba($primary, 0.12);
+        color: $primary;
+
+        svg {
+            width: 25px;
+            height: 25px;
+        }
+    }
+
+    &__title {
+        margin: 0;
+        color: $body-color;
+        font-size: 1.75rem;
+        font-weight: 700;
+    }
+
+    &__description {
+        margin: 0.5rem 0 0;
+        color: $secondary;
+        font-size: 0.9rem;
+    }
+
+    // Form fields
+    &__form {
+        display: flex;
+        flex-direction: column;
+        gap: 1.25rem;
+    }
+
+    &__field {
+        .is-invalid {
+            border-color: $danger;
+        }
+
+        .invalid-feedback {
+            margin-top: 0.4rem;
+            font-size: 0.8rem;
+        }
+    }
+
+    &__label {
+        display: block;
+        margin-bottom: 0.45rem;
+        color: $body-color;
+        font-size: 0.875rem;
+        font-weight: 600;
+    }
+
+    .form-control {
+        min-height: 46px;
+        border-color: $border-color;
+        border-radius: 0.5rem;
+        font-size: 0.9rem;
+
+        &:focus {
+            border-color: $primary;
+            box-shadow: 0 0 0 0.2rem rgba($primary, 0.12);
+        }
+    }
+
+    // Remember me and forgot password
+    &__options {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 0.75rem;
+    }
+
+    .form-check {
+        margin: 0;
+
+        .form-check-input {
+            cursor: pointer;
+
+            &:checked {
+                background-color: $primary;
+                border-color: $primary;
+            }
+
+            &:focus {
+                box-shadow: 0 0 0 0.2rem rgba($primary, 0.12);
+            }
+        }
+
+        .form-check-label {
+            color: $secondary;
+            font-size: 0.85rem;
+            cursor: pointer;
+        }
+    }
+
+    &__forgot {
+        color: $primary;
+        font-size: 0.85rem;
+        font-weight: 600;
+        text-decoration: none;
+
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+
+    // Submit button
+    &__submit {
+        min-height: 46px;
+        width: 100%;
+        font-weight: 600;
+    }
+}
+
+// ==========================================
+// Responsive adjustments
+// ==========================================
+@media (max-width: 479.98px) {
+    .login-page {
+
+        &__card {
+            padding: 1.75rem 1.25rem;
+        }
+
+        &__title {
+            font-size: 1.55rem;
+        }
+    }
+}
