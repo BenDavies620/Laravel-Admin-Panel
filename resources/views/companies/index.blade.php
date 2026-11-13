@@ -116,7 +116,7 @@
 
                                         @if ($company->logo)
                                             <img
-                                                src="{{ asset('storage/' . $company->logo) }}"
+                                                src="{{ route('company-logos.show', basename($company->logo)) }}"
                                                 alt="{{ $company->name }} logo"
                                                 class="companies-directory__logo"
                                             >

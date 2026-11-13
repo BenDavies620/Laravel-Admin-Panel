@@ -107,7 +107,7 @@
                     <div class="company-form__logo-preview">
 
                         @if ($company->logo)
-                            <img src="{{ asset('storage/' . $company->logo) }}"
+                            <img src="{{ route('company-logos.show', basename($company->logo)) }}"
                                  alt="{{ $company->name }} logo">
                         @else
                             <span>No logo</span>
