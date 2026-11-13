@@ -14,6 +14,12 @@ Route::get('/home', [DashboardController::class, 'index'])
     ->middleware('auth')
     ->name('home');
 
-Route::resource('companies', CompanyController::class)->middleware('auth');
+Route::middleware('auth')->group(function () {
 
-Route::resource('employees', EmployeeController::class)->middleware('auth');
+    Route::resource('companies', CompanyController::class)
+        ->except(['show']);
+
+    Route::resource('employees', EmployeeController::class)
+        ->except(['show']);
+
+});

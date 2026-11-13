@@ -19,7 +19,6 @@
 
         <button type="button"
                 class="btn-close app-alert__close"
-                id="app-alert__close"
                 data-bs-dismiss="alert"
                 aria-label="Dismiss notification">
         </button>
