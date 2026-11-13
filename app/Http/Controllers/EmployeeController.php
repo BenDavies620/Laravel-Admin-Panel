@@ -15,8 +15,13 @@ class EmployeeController extends Controller
     {
         $employees = Employee::with('company')->paginate(10);
 
+        $totalEmployees = Employee::count();
+        $employeesAssigned = Employee::whereNotNull('company_id')->count();
+
         return view('employees.index', [
-            'employees' => $employees
+            'employees' => $employees,
+            'totalEmployees' => $totalEmployees,
+            'employeesAssigned' => $employeesAssigned
         ]);
     }
 
