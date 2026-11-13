@@ -15,8 +15,13 @@ class CompanyController extends Controller
     {
         $companies = Company::paginate(10);
 
+        $totalCompanies = Company::count();
+        $companiesWithLogos = Company::whereNotNull('logo')->count();
+
         return view('companies.index', [
-            'companies' => $companies
+            'companies' => $companies,
+            'totalCompanies' => $totalCompanies,
+            'companiesWithLogos' => $companiesWithLogos
         ]);
     }
 
